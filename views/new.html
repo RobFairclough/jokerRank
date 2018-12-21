@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+  <title>Submit a new joke</title>
+  <meta charset="utf-8" />
+</head>
+<style>
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .wrapper {
+    text-align: center;
+  }
+  .container {
+    display: inline-block;
+    position: absolute;
+    transform: translate(-50%, 50%);
+  }
+</style>
+
+<main class="wrapper">
+  <div class="container">
+    <form id="newjoke" action="/api/new" method="post">
+      <label for="joke">Your joke here </label>
+      <input
+        name="joke"
+        id="jokeinput"
+        type="text"
+        placeholder="Make em laugh..."
+      /><br />
+      <label for="name">name </label>
+      <input
+        name="author"
+        id="name"
+        type="text"
+        placeholder="take credit for it?"
+      /><br />
+      <button id="submit" type="submit">submit</button>
+    </form>
+  </div>
+</main>

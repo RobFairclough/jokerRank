@@ -1,9 +1,11 @@
 ## ideas
 
-// user submit quotes / author
+// user submit quotes / author - post submit page
 
-// voting on quotes
+// voting on quotes - page for this
 
 // sort by score, new
 
 // share
+
+//

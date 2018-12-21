@@ -1,73 +1,73 @@
 const fs = require("fs");
 
 const getAll = cb => {
-  fs.readFile("./data/quotes.json", quoteFile => {
-    const quotes = JSON.parse(quoteFile);
-    if (quotes.length) cb(null, JSON.stringify(quotes, null, 2));
-    else cb("No quotes found");
+  fs.readFile("./data/jokes.json", jokeFile => {
+    const jokes = JSON.parse(jokeFile);
+    if (jokes.length) cb(null, JSON.stringify(jokes, null, 2));
+    else cb("No jokes found");
   });
 };
 
 const getRandom = cb => {
-  fs.readFile("./data/quotes.json", (err, quoteFile) => {
-    const quotes = JSON.parse(quoteFile);
-    console.log(quotes);
-    if (!quotes.length) cb({ msg: "no quotes", status: 404 });
+  fs.readFile("./data/jokes.json", (err, jokeFile) => {
+    const jokes = JSON.parse(jokeFile);
+    console.log(jokes);
+    if (!jokes.length) cb({ msg: "no jokes", status: 404 });
     else {
-      const rand = Math.floor(Math.random() * quotes.length);
+      const rand = Math.floor(Math.random() * jokes.length);
       console.log(rand);
-      console.log(quotes[rand]);
-      cb(null, quotes[rand]);
+      console.log(jokes[rand]);
+      cb(null, jokes[rand]);
     }
   });
 };
 
-const generateNew = (quote, author, cb) => {
-  fs.readFile("./data/quotes.json", (err, quoteFile) => {
-    // array of quotes
-    let quotes = JSON.parse(quoteFile);
+const generateNew = (joke, author, cb) => {
+  fs.readFile("./data/jokes.json", (err, jokeFile) => {
+    // array of jokes
+    let jokes = JSON.parse(jokeFile);
     // duplicate check
-    if (quotes.find(q => q.quote.toLowerCase() === quote.toLowerCase())) {
-      cb(null, "Quote already exists");
+    if (jokes.find(q => q.joke.toLowerCase() === joke.toLowerCase())) {
+      cb(null, "joke already exists");
     } else {
-      console.log(quoteFile);
-      console.log(quotes);
+      console.log(jokeFile);
+      console.log(jokes);
       if (!author) author = "Anonymous";
-      const newQuote = {
-        quote,
+      const newjoke = {
+        joke,
         author,
         score: 0,
-        quoteid: quotes.length + 1
+        jokeid: jokes.length + 1
       };
-      quotes.push(newQuote);
-      const quoteFileToWrite = JSON.stringify(quotes, null, 2);
-      fs.writeFile("./data/quotes.json", quoteFileToWrite, err => {
-        console.log(newQuote);
+      jokes.push(newjoke);
+      const jokeFileToWrite = JSON.stringify(jokes, null, 2);
+      fs.writeFile("./data/jokes.json", jokeFileToWrite, err => {
+        console.log(newjoke);
         if (err) cb(err);
-        else cb(null, newQuote);
+        else cb(null, newjoke);
       });
     }
   });
 };
 
-const applyVote = (vote, quoteid, cb) => {
-  fs.readFile("./data/quotes.json", (err, quoteFile) => {
-    const quotes = JSON.parse(quoteFile);
-    const thisQuote = quotes.find(q => q.quoteid === quoteid);
-    if (!thisQuote) cb("quote not found error");
-    else if (vote === "up") thisQuote.score++;
+const applyVote = (vote, jokeid, cb) => {
+  fs.readFile("./data/jokes.json", (err, jokeFile) => {
+    const jokes = JSON.parse(jokeFile);
+    const thisjoke = jokes.find(q => q.jokeid === jokeid);
+    if (!thisjoke) cb("joke not found error");
+    else if (vote === "up") thisjoke.score++;
     else {
-      if (thisQuote.score >= 0) thisQuote.score = 0;
-      else thisQuote.score--;
+      if (thisjoke.score >= 0) thisjoke.score = 0;
+      else thisjoke.score--;
     }
-    const quotesToWrite = JSON.stringify(quotes, null, 2);
-    fs.writeFile("./data/quotes.json", quotesToWrite, err => {
+    const jokesToWrite = JSON.stringify(jokes, null, 2);
+    fs.writeFile("./data/jokes.json", jokesToWrite, err => {
       if (err) cb(err);
       else {
         cb(
           null,
-          `${vote}vote successful, "${thisQuote.quote}" is now at ${
-            thisQuote.score
+          `${vote}vote successful, "${thisjoke.joke}" is now at ${
+            thisjoke.score
           } points!`
         );
       }

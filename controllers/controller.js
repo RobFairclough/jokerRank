@@ -6,19 +6,20 @@ const {
 } = require("../models/model");
 
 const sendNew = (req, res, next) => {
-  const quote = req.body.quote;
+  console.log(req.body);
+  const joke = req.body.joke;
   const author = req.body.author;
-  generateNew(quote, author, (err, done) => {
+  generateNew(joke, author, (err, done) => {
     if (err) next(err);
-    // success, maybe display that quote
+    // success, maybe display that joke
     res.send(done);
   });
 };
 
 const sendVote = (req, res, next) => {
   const vote = req.body.vote;
-  const quoteid = req.body.quoteid; // find this
-  applyVote(vote, quoteid, (err, done) => {
+  const jokeid = req.body.jokeid; // find this
+  applyVote(vote, jokeid, (err, done) => {
     if (err) next(err);
     else res.send(done);
   });
