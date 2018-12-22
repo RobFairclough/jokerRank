@@ -1,7 +1,9 @@
 const fs = require("fs");
+const path = require("path");
 
 const getAll = cb => {
-  fs.readFile("./data/jokes.json", jokeFile => {
+  fs.readFile("./data/jokes.json", (err, jokeFile) => {
+    if (err) cb("error reading file");
     const jokes = JSON.parse(jokeFile);
     if (jokes.length) cb(null, JSON.stringify(jokes, null, 2));
     else cb("No jokes found");
@@ -11,12 +13,9 @@ const getAll = cb => {
 const getRandom = cb => {
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     const jokes = JSON.parse(jokeFile);
-    console.log(jokes);
     if (!jokes.length) cb({ msg: "no jokes", status: 404 });
     else {
       const rand = Math.floor(Math.random() * jokes.length);
-      console.log(rand);
-      console.log(jokes[rand]);
       cb(null, jokes[rand]);
     }
   });
@@ -43,7 +42,7 @@ const generateNew = (joke, author, cb) => {
       const jokeFileToWrite = JSON.stringify(jokes, null, 2);
       fs.writeFile("./data/jokes.json", jokeFileToWrite, err => {
         console.log(newjoke);
-        if (err) cb(err);
+        if (err) cb("err writing file");
         else cb(null, newjoke);
       });
     }
@@ -51,25 +50,21 @@ const generateNew = (joke, author, cb) => {
 };
 
 const applyVote = (vote, jokeid, cb) => {
+  console.log(vote, jokeid);
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     const jokes = JSON.parse(jokeFile);
-    const thisjoke = jokes.find(q => q.jokeid === jokeid);
-    if (!thisjoke) cb("joke not found error");
-    else if (vote === "up") thisjoke.score++;
+    const thisJoke = jokes.find(q => q.jokeid === jokeid);
+    if (!thisJoke) cb("joke not found error");
+    else if (vote === "up") thisJoke.score++;
     else {
-      if (thisjoke.score >= 0) thisjoke.score = 0;
-      else thisjoke.score--;
+      if (thisJoke.score <= 0) thisJoke.score = 0;
+      else thisJoke.score--;
     }
     const jokesToWrite = JSON.stringify(jokes, null, 2);
     fs.writeFile("./data/jokes.json", jokesToWrite, err => {
       if (err) cb(err);
       else {
-        cb(
-          null,
-          `${vote}vote successful, "${thisjoke.joke}" is now at ${
-            thisjoke.score
-          } points!`
-        );
+        cb(null, thisJoke);
       }
     });
   });

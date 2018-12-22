@@ -6,7 +6,6 @@ const {
 } = require("../models/model");
 
 const sendNew = (req, res, next) => {
-  console.log(req.body);
   const joke = req.body.joke;
   const author = req.body.author;
   generateNew(joke, author, (err, done) => {
@@ -17,6 +16,7 @@ const sendNew = (req, res, next) => {
 };
 
 const sendVote = (req, res, next) => {
+  console.log(req.body);
   const vote = req.body.vote;
   const jokeid = req.body.jokeid; // find this
   applyVote(vote, jokeid, (err, done) => {

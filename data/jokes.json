@@ -1,44 +1,80 @@
 [
   {
-    "joke": "What",
-    "author": "you",
-    "score": 5,
+    "joke": "Why was the developer grinning when he got home from the dentist? Curly braces",
+    "author": "smiles mchappy",
+    "score": 7,
     "jokeid": 1
   },
   {
-    "joke": "pgrsg4g4ggp",
+    "joke": "What do javascript devs and Robin Hood planning events have in common? Arrow functions",
     "author": 1,
-    "score": 0,
+    "score": 5,
     "jokeid": 2
   },
   {
-    "joke": "aehaoge",
+    "joke": "I told the vanilla JS developer he could pick up a new front-end framework, but he didn't React",
     "author": 1,
-    "score": 0,
+    "score": 2,
     "jokeid": 3
   },
   {
-    "joke": "heagleg",
+    "joke": "Man approached a grieving widow at a funeral and asks \"mind  if I say a word?\". She agrees, so he says\"Plethora\". The widow, in tears replies \"thanks... that means a lot\"",
     "author": 1,
-    "score": 0,
+    "score": 3,
     "jokeid": 4
   },
   {
-    "joke": "ehaogehg",
+    "joke": "Top Christmas tips: 1. Forget the past, we can't change that. 2. Forget the present. I didn't get you one.",
     "author": 1,
-    "score": 0,
+    "score": 2,
     "jokeid": 5
   },
   {
     "joke": "where does the king keep his armies? In his sleevies",
     "author": "Anonymous",
-    "score": 0,
+    "score": 2,
     "jokeid": 6
   },
   {
     "joke": "skeleton walks into a bar and orders a drink, and a mop",
     "author": "al pacino",
-    "score": 0,
+    "score": 3,
     "jokeid": 7
+  },
+  {
+    "joke": "my girlfriend said to me 'this isn't working', I asked her if she'd double-checked the lexical scope and she left me",
+    "author": "",
+    "score": 2,
+    "jokeid": 8
+  },
+  {
+    "joke": "my async functions weren't working out for the same reason my theatre career didn't - no callbacks",
+    "author": "whoever",
+    "score": 2,
+    "jokeid": 9
+  },
+  {
+    "joke": "Who's the JavaScript developer's favourite action hero? JSON Statham",
+    "author": "Anonymous",
+    "score": 0,
+    "jokeid": 10
+  },
+  {
+    "joke": "Walking through the graveyard the other day when I see a man crouched behind a gravestone. I shout over to him \"Morning\", to which he replies \"Nope, taking a shit!\"",
+    "author": "Anonymous",
+    "score": 0,
+    "jokeid": 11
+  },
+  {
+    "joke": "What's brown and rhymes with Snoop? Dr. Dre",
+    "author": "Anonymous",
+    "score": 0,
+    "jokeid": 12
+  },
+  {
+    "joke": "What's brown and sticky? A stick",
+    "author": "Anonymous",
+    "score": 0,
+    "jokeid": 13
   }
 ]
