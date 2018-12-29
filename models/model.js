@@ -4,8 +4,8 @@ const getAll = cb => {
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     if (err) cb("error reading file");
     const jokes = JSON.parse(jokeFile);
-    if (jokes.length) cb(null, JSON.stringify(jokes, null, 2));
-    else cb("No jokes found");
+    if (jokes.length) cb(null, jokes);
+    else cb({ msg: "No jokes found", status: 404 });
   });
 };
 const getRandom = cb => {

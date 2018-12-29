@@ -16,7 +16,7 @@ app.get("/", (req, res, next) => {
 });
 // retrieve all
 app.get("/api/all", sendAll);
-// get random joke
+// get random joke - used to generate joke on homepage
 app.get("/api/random", sendRandom);
 // submit a joke page
 app.get("/api/new", (req, res, next) => {

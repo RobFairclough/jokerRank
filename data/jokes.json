@@ -14,7 +14,7 @@
   {
     "joke": "I told the vanilla JS developer he could pick up a new front-end framework, but he didn't React",
     "author": 1,
-    "score": 2,
+    "score": 3,
     "jokeid": 3
   },
   {
@@ -50,13 +50,13 @@
   {
     "joke": "my async functions weren't working out for the same reason my theatre career didn't - no callbacks",
     "author": "whoever",
-    "score": 1,
+    "score": 5,
     "jokeid": 9
   },
   {
     "joke": "Who's the JavaScript developer's favourite action hero? JSON Statham",
     "author": "Anonymous",
-    "score": 0,
+    "score": 3,
     "jokeid": 10
   },
   {
@@ -66,27 +66,15 @@
     "jokeid": 11
   },
   {
-    "joke": "What's brown and rhymes with Snoop? Dr. Dre",
-    "author": "Anonymous",
-    "score": 1,
-    "jokeid": 12
-  },
-  {
-    "joke": "What's brown and sticky? A stick",
-    "author": "Anonymous",
-    "score": 0,
-    "jokeid": 13
-  },
-  {
     "joke": "Saw an ad in a window that said 'Radio for sale, volume dial stuck on full' and I thought to myself... I can't turn that down.",
     "author": "Anonymous",
     "score": 0,
-    "jokeid": 14
+    "jokeid": 12
   },
   {
     "joke": "I bought an ant farm the other day... those fellas didn't grow shit",
     "author": "mitch hedberg",
     "score": 0,
-    "jokeid": 15
+    "jokeid": 13
   }
 ]
