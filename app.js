@@ -18,12 +18,11 @@ app.get("/", (req, res, next) => {
 app.get("/api/all", sendAll);
 // get random joke
 app.get("/api/random", sendRandom);
-
+// submit a joke page
 app.get("/api/new", (req, res, next) => {
   res.sendFile(path.join(__dirname, "/views/new.html"));
 });
-
-// new joke
+// save new joke
 app.post("/api/new", sendNew);
 // vote on joke, body should be {vote: up/down, jokeid: num}
 app.post("/api/vote", sendVote);

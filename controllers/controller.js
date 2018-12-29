@@ -16,7 +16,6 @@ const sendNew = (req, res, next) => {
 };
 
 const sendVote = (req, res, next) => {
-  console.log(req.body);
   const vote = req.body.vote;
   const jokeid = req.body.jokeid; // find this
   applyVote(vote, jokeid, (err, done) => {

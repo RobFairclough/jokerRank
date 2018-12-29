@@ -2,7 +2,7 @@
   {
     "joke": "Why was the developer grinning when he got home from the dentist? Curly braces",
     "author": "smiles mchappy",
-    "score": 7,
+    "score": 8,
     "jokeid": 1
   },
   {
@@ -32,25 +32,25 @@
   {
     "joke": "where does the king keep his armies? In his sleevies",
     "author": "Anonymous",
-    "score": 2,
+    "score": 3,
     "jokeid": 6
   },
   {
     "joke": "skeleton walks into a bar and orders a drink, and a mop",
     "author": "al pacino",
-    "score": 3,
+    "score": 1,
     "jokeid": 7
   },
   {
     "joke": "my girlfriend said to me 'this isn't working', I asked her if she'd double-checked the lexical scope and she left me",
     "author": "",
-    "score": 2,
+    "score": 3,
     "jokeid": 8
   },
   {
     "joke": "my async functions weren't working out for the same reason my theatre career didn't - no callbacks",
     "author": "whoever",
-    "score": 2,
+    "score": 1,
     "jokeid": 9
   },
   {
@@ -68,7 +68,7 @@
   {
     "joke": "What's brown and rhymes with Snoop? Dr. Dre",
     "author": "Anonymous",
-    "score": 0,
+    "score": 1,
     "jokeid": 12
   },
   {
@@ -82,5 +82,11 @@
     "author": "Anonymous",
     "score": 0,
     "jokeid": 14
+  },
+  {
+    "joke": "I bought an ant farm the other day... those fellas didn't grow shit",
+    "author": "mitch hedberg",
+    "score": 0,
+    "jokeid": 15
   }
 ]

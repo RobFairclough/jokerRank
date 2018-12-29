@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <head>
   <title>jokes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css?family=Thasadith"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous"
+  />
 </head>
+
 <body>
   <script type="text/javascript">
     window.onload = randomJoke;
@@ -27,7 +39,6 @@
           })">Ha ha ha!</button> <button id = "down" class = "btn" onclick = "vote('down', ${
             jokeobj.jokeid
           })"> No </button>`;
-          console.log("end of function");
         }
       };
       xhr.open("GET", "/api/random");
@@ -35,11 +46,8 @@
     }
     // function to run when vote buttons are clicked
     const vote = (vote, jokeid) => {
-      console.log(vote, jokeid);
       const xhrvote = new XMLHttpRequest();
-      console.log("request created");
       xhrvote.onreadystatechange = () => {
-        console.log(xhrvote);
         if (xhrvote.readyState === 4 && xhrvote.status === 200) {
           const votedJoke = JSON.parse(xhrvote.response);
           const buttons = document.querySelector("#button-span");
@@ -53,29 +61,101 @@
       xhrvote.send(JSON.stringify({ vote, jokeid }), null, 2);
     };
   </script>
+  <!-- Todo - remove styling into seperate CSS files, works differently in express server page to static I guess -->
   <style>
     body {
+      background-color: lightslategrey;
+      font-family: "Thasadith", sans-serif;
+      font-weight: bold;
+      margin: 0;
+    }
+    header {
+      position: fixed;
       background-color: slategrey;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+    #branding {
+      float: left;
+      padding-left: 1em;
+    }
+    #page-title {
+      font-size: 1.5rem;
+    }
+    #navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+    }
+    @media screen and (max-width: 600px) {
+      li a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        }
+      #branding {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        }
+    }
+    li a {
+      float: right;
+      padding: 1em;
+      background-color: darkslategrey;
+      color: lightskyblue;
+      border-right: solid black 1px;
+      text-decoration: none;
+      overflow: hidden;
+      text-align: center;
+
+    }
+    li a:hover {
+      background-color: black;
+      color: white;
     }
     .wrapper {
       text-align: center;
-      max-width: 75%;
+      display: flex;
+
     }
     .container {
-      display: inline-block;
       position: absolute;
-      transform: translate(-50%, 50%);
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background-color: cornsilk;
-      padding: 2em;
-      border-radius: 50%;
+      width: 75%;
+      max-width: 800px;
+      padding: 1em;
+      border: solid black 0.5rem;
+      border-radius: 15%;
+      margin-top: 2.2em;
     }
   </style>
+  <header>
+    <nav id="navbar">
+      <!-- options -->
+      <ul>
+        <li id="branding"><h2 id="page-title">jokerRank</h1></li>
+        <li><a href="#" id="tweet" class="fab fa-twitter"> Share</a></li>
+        <li>
+          <a href="/api/new" id="submit" class="fas fa-plus"> Submit a joke</a>
+        </li>
+        <li><a href="/" id="home" class="fas fa-home"> Home</a></li>
+      </ul>
+    </nav>
+  </header>
   <main class="wrapper">
     <div>
       <div id="randomjoke" class="container jokebox"></div>
       <!-- random joke -->
       <!-- Next quote button -->
-      <div><!-- options --></div>
     </div>
   </main>
 </body>

@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 
 const getAll = cb => {
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
@@ -9,7 +8,6 @@ const getAll = cb => {
     else cb("No jokes found");
   });
 };
-
 const getRandom = cb => {
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     const jokes = JSON.parse(jokeFile);
@@ -20,7 +18,6 @@ const getRandom = cb => {
     }
   });
 };
-
 const generateNew = (joke, author, cb) => {
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     // array of jokes
@@ -29,8 +26,6 @@ const generateNew = (joke, author, cb) => {
     if (jokes.find(q => q.joke.toLowerCase() === joke.toLowerCase())) {
       cb(null, "joke already exists");
     } else {
-      console.log(jokeFile);
-      console.log(jokes);
       if (!author) author = "Anonymous";
       const newjoke = {
         joke,
@@ -41,7 +36,6 @@ const generateNew = (joke, author, cb) => {
       jokes.push(newjoke);
       const jokeFileToWrite = JSON.stringify(jokes, null, 2);
       fs.writeFile("./data/jokes.json", jokeFileToWrite, err => {
-        console.log(newjoke);
         if (err) cb("err writing file");
         else cb(null, newjoke);
       });
@@ -50,7 +44,6 @@ const generateNew = (joke, author, cb) => {
 };
 
 const applyVote = (vote, jokeid, cb) => {
-  console.log(vote, jokeid);
   fs.readFile("./data/jokes.json", (err, jokeFile) => {
     const jokes = JSON.parse(jokeFile);
     const thisJoke = jokes.find(q => q.jokeid === jokeid);
