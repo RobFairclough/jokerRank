@@ -2,7 +2,7 @@
 
 an actual readme \
 page after a quote is submitted \
-validation checks on submitted jokes \
+validation checks on submitted jokes - limit to tweet length? \
 page for viewing more than one quote at a time - pagination / 10 jokes in chronological order? score order? both? \
 share page - tweet? maybe an api for loading the quote in an image to instagram \
 report a joke - either just a json of quotes to check or email/message to me \
