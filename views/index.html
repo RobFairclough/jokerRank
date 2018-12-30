@@ -25,7 +25,7 @@
           const display = document.querySelector("#randomjoke");
           const jokeobj = JSON.parse(xhr.response);
           console.log(jokeobj);
-          display.innerHTML = `<span>${jokeobj.joke}</span><br><span> - ${
+          display.innerHTML = `<span id = "joke-text">${jokeobj.joke}</span><br><span id = "joke-author"> - ${
             jokeobj.author
           }</span> <br> <span id = "vote-score">Score: ${
             jokeobj.score
@@ -60,6 +60,16 @@
       xhrvote.setRequestHeader("Content-Type", "application/json");
       xhrvote.send(JSON.stringify({ vote, jokeid }), null, 2);
     };
+    function tweet() {
+      const joke = document.querySelector("#joke-text").innerText;
+      const author  = document.querySelector("#joke-author").innerText
+      const fullTweet = `${joke} ${author}  (found on jokerRank)`
+      const tweetLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullTweet)}`
+      window.open(tweetLink, '_blank');
+
+      
+
+    }
   </script>
   <!-- Todo - remove styling into seperate CSS files, works differently in express server page to static I guess -->
   <style>
@@ -102,7 +112,7 @@
         display: block;
         width: 100%;
         text-align: left;
-        }
+      }
     }
     li a {
       float: right;
@@ -152,7 +162,7 @@
       <!-- options -->
       <ul>
         <li id="branding"><h2 id="page-title">jokerRank</h1></li>
-        <li><a href="#" id="tweet" class="fab fa-twitter"> Share</a></li>
+        <li><a href="#" onclick ="tweet()" id="tweet" class="fab fa-twitter"> Share</a></li>
         <li>
           <a href="/api/new" id="submit" class="fas fa-plus"> Submit a joke</a>
         </li>
