@@ -2,73 +2,73 @@
   {
     "joke": "Why was the developer grinning when he got home from the dentist? Curly braces",
     "author": "smiles mchappy",
-    "score": 8,
+    "score": 12,
     "jokeid": 1
   },
   {
     "joke": "What do javascript devs and Robin Hood planning events have in common? Arrow functions",
     "author": 1,
-    "score": 5,
+    "score": 4,
     "jokeid": 2
   },
   {
     "joke": "I told the vanilla JS developer he could pick up a new front-end framework, but he didn't React",
     "author": 1,
-    "score": 3,
+    "score": 2,
     "jokeid": 3
   },
   {
     "joke": "Man approached a grieving widow at a funeral and asks \"mind  if I say a word?\". She agrees, so he says\"Plethora\". The widow, in tears replies \"thanks... that means a lot\"",
     "author": 1,
-    "score": 3,
+    "score": 2,
     "jokeid": 4
   },
   {
     "joke": "Top Christmas tips: 1. Forget the past, we can't change that. 2. Forget the present. I didn't get you one.",
     "author": 1,
-    "score": 2,
+    "score": 6,
     "jokeid": 5
   },
   {
     "joke": "where does the king keep his armies? In his sleevies",
     "author": "Anonymous",
-    "score": 3,
+    "score": 1,
     "jokeid": 6
   },
   {
     "joke": "skeleton walks into a bar and orders a drink, and a mop",
     "author": "al pacino",
-    "score": 1,
+    "score": 0,
     "jokeid": 7
   },
   {
     "joke": "my girlfriend said to me 'this isn't working', I asked her if she'd double-checked the lexical scope and she left me",
     "author": "",
-    "score": 3,
+    "score": 0,
     "jokeid": 8
   },
   {
     "joke": "my async functions weren't working out for the same reason my theatre career didn't - no callbacks",
     "author": "whoever",
-    "score": 5,
+    "score": 7,
     "jokeid": 9
   },
   {
     "joke": "Who's the JavaScript developer's favourite action hero? JSON Statham",
     "author": "Anonymous",
-    "score": 3,
+    "score": 5,
     "jokeid": 10
   },
   {
     "joke": "Walking through the graveyard the other day when I see a man crouched behind a gravestone. I shout over to him \"Morning\", to which he replies \"Nope, taking a shit!\"",
     "author": "Anonymous",
-    "score": 0,
+    "score": 1,
     "jokeid": 11
   },
   {
     "joke": "Saw an ad in a window that said 'Radio for sale, volume dial stuck on full' and I thought to myself... I can't turn that down.",
     "author": "Anonymous",
-    "score": 0,
+    "score": 3,
     "jokeid": 12
   },
   {
@@ -80,13 +80,43 @@
   {
     "joke": "Why did the scarecrow win an award? He was outstanding in his field",
     "author": "H.Withers",
-    "score": 1,
+    "score": 6,
     "jokeid": 14
   },
   {
     "joke": "How do you find Will Smith in the snow? Just follow the fresh prints.",
     "author": "Susan Calman ",
-    "score": 1,
+    "score": 5,
     "jokeid": 15
+  },
+  {
+    "joke": "My wife!",
+    "author": "Borat",
+    "score": 0,
+    "jokeid": 16
+  },
+  {
+    "joke": "While on safari, I shot an elephant in my pyjamas, what he was doing in my pyjamas I'll never know",
+    "author": "Anonymous",
+    "score": 3,
+    "jokeid": 17
+  },
+  {
+    "joke": "What's orange and sounds like a parrot? A carrot.",
+    "author": "T",
+    "score": 6,
+    "jokeid": 18
+  },
+  {
+    "joke": "Why was 6 afraid of 7? Because 7 8 9",
+    "author": "T",
+    "score": 1,
+    "jokeid": 19
+  },
+  {
+    "joke": "why didn't the ghost go to the party? He had no body to go with.",
+    "author": "T",
+    "score": 1,
+    "jokeid": 20
   }
 ]
