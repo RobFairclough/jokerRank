@@ -42,7 +42,8 @@ const fetchRandomJoke = cb => {
           const jokeobj = {
             joke: joke.joke,
             author: author.author_name,
-            score: joke.score
+            score: joke.score,
+            jokeid: joke.joke_id
           };
           cb(null, jokeobj);
         }
@@ -51,4 +52,16 @@ const fetchRandomJoke = cb => {
   });
 };
 
-module.exports = { fetchAllJokes, fetchRandomJoke, saveNewJoke };
+const applyVote = (id, vote, cb) => {
+  const voteValue = vote === "up" ? 1 : -1;
+  const jokeid = id;
+  console.log(id);
+  db.one(
+    "UPDATE Jokes set score = score + $<voteValue> WHERE joke_id = $<jokeid> RETURNING *",
+    { voteValue, jokeid }
+  )
+    .then(vote => cb(null, vote))
+    .catch(err => cb(err));
+};
+
+module.exports = { fetchAllJokes, fetchRandomJoke, saveNewJoke, applyVote };

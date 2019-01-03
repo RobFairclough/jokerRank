@@ -3,7 +3,8 @@ const path = require("path");
 const {
   sendAllJokes,
   sendRandomJoke,
-  sendNewJoke
+  sendNewJoke,
+  sendVote
 } = require("../controllers/jokes");
 
 // display all jokes
@@ -18,6 +19,6 @@ jokesRouter.get("/new", (req, res, next) => {
 // save new joke
 jokesRouter.post("/new", sendNewJoke);
 // vote on joke, body should be {vote: up/down, jokeid: num}
-// app.post("/api/vote", sendVote);
+jokesRouter.post("/vote", sendVote);
 
 module.exports = jokesRouter;
