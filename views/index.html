@@ -22,22 +22,19 @@
       const xhr = new XMLHttpRequest();
       xhr.onreadystatechange = () => {
         if (xhr.status === 200 && xhr.readyState === 4) {
-          const display = document.querySelector("#randomjoke");
-          const jokeobj = JSON.parse(xhr.response);
-          console.log(jokeobj);
-          display.innerHTML = `<span id = "joke-text">${jokeobj.joke}</span><br><span id = "joke-author"> - ${
-            jokeobj.author
-          }</span> <br> <span id = "vote-score">Score: ${
-            jokeobj.score
-          } </span> <br>
-            <span id = "button-span"></span><br><button id = "nextQuote" onclick = "randomJoke()">Another joke</button>
-            `;
-          // button-span declared above and selected below
+          const jokeObj = JSON.parse(xhr.response);
+          const jokeText = document.querySelector("#joke-text");
+          const jokeAuthor = document.querySelector("#joke-author");
+          const jokeScore = document.querySelector("#joke-score");
+          jokeText.innerText = jokeObj.joke;
+          jokeAuthor.innerText = `- ${jokeObj.author}`;
+          jokeScore.innerText = `Score: ${jokeObj.score}`;
+
           const buttons = document.querySelector("#button-span");
           buttons.innerHTML = `<button id = "up" class = "btn" onclick = "vote('up', ${
-            jokeobj.jokeid
+            jokeObj.jokeid
           })">Ha ha ha!</button> <button id = "down" class = "btn" onclick = "vote('down', ${
-            jokeobj.jokeid
+            jokeObj.jokeid
           })"> No </button>`;
         }
       };
@@ -51,8 +48,9 @@
         if (xhrvote.readyState === 4 && xhrvote.status === 200) {
           const votedJoke = JSON.parse(xhrvote.response);
           const buttons = document.querySelector("#button-span");
+          // remove buttons to prevent multiple votes
           buttons.innerHTML = `Vote accepted!`;
-          const voteScore = document.querySelector("#vote-score");
+          const voteScore = document.querySelector("#joke-score");
           voteScore.innerHTML = `Score: ${votedJoke.score}`;
         }
       };
@@ -159,7 +157,6 @@
   </style>
   <header>
     <nav id="navbar">
-      <!-- options -->
       <ul>
         <li id="branding"><h2 id="page-title">jokerRank</h1></li>
         <li><a href="#" onclick ="tweet()" id="tweet" class="fab fa-twitter"> Share</a></li>
@@ -172,9 +169,17 @@
   </header>
   <main class="wrapper">
     <div>
-      <div id="randomjoke" class="container jokebox"></div>
-      <!-- random joke -->
-      <!-- Next quote button -->
+      <div id="randomjoke" class="container jokebox">
+        <span id = "joke-text"></span>
+        <br>
+        <span id = "joke-author"></span>
+        <br>
+        <span id = "joke-score"></span>
+        <br>
+        <span id = "button-span"></span>
+        <br>
+        <button id="nextQuote" onclick="randomJoke()">Another joke</button>
+      </div>
     </div>
   </main>
   <footer id = "footer">
