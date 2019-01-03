@@ -46,10 +46,11 @@
       const buttons = document.querySelector("#button-span");
       buttons.innerHTML = `Casting vote...`;
       const xhrvote = new XMLHttpRequest();
+      const buttons = document.querySelector("#button-span");
+      buttons.innerHTML = `Casting vote...`;
       xhrvote.onreadystatechange = () => {
         if (xhrvote.readyState === 4 && xhrvote.status === 200) {
           const votedJoke = JSON.parse(xhrvote.response);
-          // remove buttons to prevent multiple votes
           buttons.innerHTML = `Vote accepted!`;
           const voteScore = document.querySelector("#joke-score");
           voteScore.innerHTML = `Score: ${votedJoke.score}`;
