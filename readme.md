@@ -14,6 +14,7 @@ testing for validation etc. \
 styles in .css file? \
 
 PSQL TODO: \
-add data \
+Figure out hosting or switch from postgres to host freely on glitch - maybe mongo or sqlite
+add data to db\
 functions for viewing jokes, by author, score, etc. \
 function for removing a joke \
