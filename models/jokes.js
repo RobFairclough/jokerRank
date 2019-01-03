@@ -23,7 +23,6 @@ const saveNewJoke = (joke, author, cb) => {
       { joke, author_id }
     )
       .then(joke => {
-        console.log(joke);
         cb(null, joke);
       })
       .catch(err => cb(err));
