@@ -8,4 +8,12 @@ const fetchAllJokes = cb => {
 
 const saveNewJoke = (joke, cb) => {};
 
-module.exports = { fetchAllJokes };
+const fetchRandomJoke = cb => {
+  fetchAllJokes((err, jokes) => {
+    const rand = Math.floor(Math.random() * 5);
+    if (jokes[rand]) cb(null, jokes[rand]);
+    else cb("err");
+  });
+};
+
+module.exports = { fetchAllJokes, fetchRandomJoke, saveNewJoke };

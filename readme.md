@@ -18,4 +18,6 @@ add data \
 functions for adding a joke: if author exists attribute joke to author, else create author \
 functions for viewing jokes, by author, score, etc. \
 function for removing a joke \
-branch for implementing once finished
+voting \
+maybe routing \
+branch for implementing

@@ -1,5 +1,9 @@
 const db = require("../db");
-const { fetchAllJokes, saveNewJoke } = require("../models/jokes");
+const {
+  fetchAllJokes,
+  saveNewJoke,
+  fetchRandomJoke
+} = require("../models/jokes");
 
 const sendAllJokes = (req, res, next) => {
   fetchAllJokes((err, jokes) => {
@@ -9,9 +13,10 @@ const sendAllJokes = (req, res, next) => {
 };
 
 const sendRandomJoke = (req, res, next) => {
-  fetchAllJokes((err, jokes) => {
+  fetchRandomJoke((err, joke) => {
     if (err) next(err);
     else {
+      res.send(joke);
       // do something
     }
   });
@@ -19,6 +24,10 @@ const sendRandomJoke = (req, res, next) => {
 
 const sendNewJoke = (req, res, next) => {
   const { joke } = req.body.params;
+};
+
+const sendVote = (req, res, next) => {
+  const { vote } = req.body.params;
 };
 
 module.exports = {
