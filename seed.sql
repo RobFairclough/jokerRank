@@ -3,6 +3,12 @@ CREATE DATABASE jokes;
 
 \c jokes
 
+
+CREATE TABLE Authors (
+  author_id SERIAL,
+  author_name VARCHAR,
+  PRIMARY KEY (author_id)
+);
 CREATE TABLE Jokes (
   joke_id SERIAL,
   joke VARCHAR,
@@ -12,8 +18,5 @@ CREATE TABLE Jokes (
   FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
-CREATE TABLE Authors (
-  author_id SERIAL,
-  author_name VARCHAR,
-  PRIMARY KEY (author_id)
-);
+SELECT * FROM Jokes;
+SELECT * FROM Authors;
