@@ -43,11 +43,12 @@
     }
     // function to run when vote buttons are clicked
     const vote = (vote, jokeid) => {
+      const buttons = document.querySelector("#button-span");
+      buttons.innerHTML = `Casting vote...`;
       const xhrvote = new XMLHttpRequest();
       xhrvote.onreadystatechange = () => {
         if (xhrvote.readyState === 4 && xhrvote.status === 200) {
           const votedJoke = JSON.parse(xhrvote.response);
-          const buttons = document.querySelector("#button-span");
           // remove buttons to prevent multiple votes
           buttons.innerHTML = `Vote accepted!`;
           const voteScore = document.querySelector("#joke-score");
