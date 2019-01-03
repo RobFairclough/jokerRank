@@ -23,11 +23,15 @@ const sendRandomJoke = (req, res, next) => {
 };
 
 const sendNewJoke = (req, res, next) => {
-  const { joke } = req.body.params;
+  const { joke, author } = req.body;
+  saveNewJoke(joke, author, (err, done) => {
+    if (err) next(err);
+    else res.send(done);
+  });
 };
 
 const sendVote = (req, res, next) => {
-  const { vote } = req.body.params;
+  const { vote } = req.body;
 };
 
 module.exports = {
