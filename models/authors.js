@@ -5,3 +5,13 @@ const fetchAllAuthors = cb => {
     .then(authors => cb(null, authors))
     .catch(err => cb(err));
 };
+
+const fetchAuthorById = (id, cb) => {
+  db.one("SELECT * FROM Authors WHERE author_id = $<id>", {
+    id
+  })
+    .then(author => cb(null, author))
+    .catch(err => cb(err));
+};
+
+module.exports = { fetchAllAuthors, fetchAuthorById };

@@ -1,5 +1,5 @@
 const db = require("../db");
-const { fetchAllAuthors } = require("../models/authors");
+const { fetchAllAuthors, fetchAuthorById } = require("../models/authors");
 
 const sendAllAuthors = (req, res, next) => {
   fetchAllAuthors((err, authors) => {
@@ -18,7 +18,16 @@ const sendAuthorJokes = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const sendAuthorById = (req, res, next) => {
+  const { authorid } = req.params;
+  fetchAuthorById(authorid, (err, author) => {
+    if (err) next(err);
+    else res.send(author);
+  });
+};
+
 module.exports = {
   sendAllAuthors,
-  sendAuthorJokes
+  sendAuthorJokes,
+  sendAuthorById
 };
