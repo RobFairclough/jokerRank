@@ -26,8 +26,28 @@ const sendAuthorById = (req, res, next) => {
   });
 };
 
+const sendNewAuthor = (req, res, next) => {
+  const { author } = req.body;
+  fetchAllAuthors((err, authors) => {
+    if (err) next(err);
+    else {
+      console.log(authors);
+      if (!authors.find(author => author.author_name === author)) {
+        db.one(
+          "INSERT INTO Authors (author_name) VALUES ($<author>) RETURNING *",
+          {
+            author
+          }
+        )
+          .then(author => res.status(201).send({ author }))
+          .catch(next);
+      } else next("author already exists");
+    }
+  });
+};
 module.exports = {
   sendAllAuthors,
   sendAuthorJokes,
-  sendAuthorById
+  sendAuthorById,
+  sendNewAuthor
 };
