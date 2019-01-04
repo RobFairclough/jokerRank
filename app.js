@@ -1,31 +1,16 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 const path = require("path");
-const {
-  sendNew,
-  sendAll,
-  sendVote,
-  sendRandom
-} = require("./controllers/controller");
+
+const { apiRouter } = require("./routes/api");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// home
+// homepage
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "/views/index.html"));
 });
-// retrieve all
-app.get("/api/all", sendAll);
-// get random joke - used to generate joke on homepage
-app.get("/api/random", sendRandom);
-// submit a joke page
-app.get("/api/new", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "/views/new.html"));
-});
-// save new joke
-app.post("/api/new", sendNew);
-// vote on joke, body should be {vote: up/down, jokeid: num}
-app.post("/api/vote", sendVote);
+app.use("/api", apiRouter);
 
 // 500 block error handling
 app.use((err, req, res, next) => {
