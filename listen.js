@@ -1,5 +1,7 @@
-const { app } = require("./app");
+const app = require("./app");
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(9090, () => {
   console.log("listening");
 });
+
+module.exports = app;
