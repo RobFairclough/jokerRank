@@ -27,6 +27,7 @@ const saveNewAuthor = (author, cb) => {
   fetchAllAuthors((err, authors) => {
     if (err) cb(err);
     else {
+      if (!author) author = "anonymous";
       const exists = authors.find(existing => existing.author_name === author);
       if (!exists) {
         db.one(
