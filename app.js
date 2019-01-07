@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const { apiRouter } = require("./routes/api");
-
+// fixing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // homepage
