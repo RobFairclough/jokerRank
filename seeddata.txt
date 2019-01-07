@@ -3,28 +3,24 @@ CREATE DATABASE
 You are now connected to database "jokes" as user "robfairclough".
 CREATE TABLE
 CREATE TABLE
+INSERT 0 4
 INSERT 0 5
-INSERT 0 5
-INSERT 0 2
  joke_id |                      joke                       | author_id | score 
 ---------+-------------------------------------------------+-----------+-------
-       1 | hey mark david chapman what are you doing here? |         2 |     0
-       2 | beetle beetle beetle                            |         3 |     0
-       3 | my name is george, harrys son                   |         4 |     0
-       4 | ringo the tank engine                           |         5 |     0
-       5 | hey hey were the beatles                        |         2 |     0
-       6 | test1                                           |         1 |     0
-       7 | test2                                           |         1 |     0
-(7 rows)
+       1 | hey mark david chapman what are you doing here? |         1 |     0
+       2 | beetle beetle beetle                            |         2 |     0
+       3 | my name is george, harrys son                   |         3 |     0
+       4 | ringo the tank engine                           |         4 |     0
+       5 | hey hey were the beatles                        |         1 |     0
+(5 rows)
 
  author_id | author_name 
 -----------+-------------
-         1 | test
-         2 | john
-         3 | paul
-         4 | george
-         5 | ringo
-(5 rows)
+         1 | john
+         2 | paul
+         3 | george
+         4 | ringo
+(4 rows)
 
                       joke                       | author_name 
 -------------------------------------------------+-------------
@@ -33,7 +29,5 @@ INSERT 0 2
  my name is george, harrys son                   | george
  ringo the tank engine                           | ringo
  hey hey were the beatles                        | john
- test1                                           | test
- test2                                           | test
-(7 rows)
+(5 rows)
 

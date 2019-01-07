@@ -14,8 +14,11 @@ testing for validation etc. \
 styles in .css file? \
 
 PSQL TODO: \
+<<<<<<< HEAD
 AWS? Hosted and functional from a validated IP but not publicly accessible\
 Figure out hosting or switch from postgres to host freely on glitch - maybe mongo or sqlite \
+=======
+
 add data to db\
 functions for viewing jokes, by author, score, etc. \
 function for removing a joke \
