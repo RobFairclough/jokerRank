@@ -1,6 +1,6 @@
 const app = require("./app");
 
-app.listen(9090, () => {
+app.listen(3000, () => {
   console.log("listening");
 });
 
