@@ -1,7 +1,5 @@
 module.exports = {
-  host: "jokerrank.cqoimhbsweye.eu-west-2.rds.amazonaws.com",
+  host: "localhost",
   port: 5432,
-  database: "jokes",
-  username: "robfairclough",
-  password: "D8*%ahNWyzXsOPDWD!f4"
+  database: "jokes"
 };
