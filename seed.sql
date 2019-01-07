@@ -19,12 +19,10 @@ CREATE TABLE Jokes (
 );
 
 INSERT INTO Authors (author_name)
-VALUES ('test'), ('john'), ('paul'), ('george'), ('ringo');
+VALUES ('john'), ('paul'), ('george'), ('ringo');
 
 INSERT INTO Jokes (joke, author_id)
-VALUES ('hey mark david chapman what are you doing here?', 2), ('beetle beetle beetle', 3), ('my name is george, harrys son', 4), ('ringo the tank engine', 5), ('hey hey were the beatles', 2);
-INSERT INTO Jokes (joke, author_id)
-VALUES ('test1', 1), ('test2', 1);
+VALUES ('hey mark david chapman what are you doing here?', 1), ('beetle beetle beetle', 2), ('my name is george, harrys son', 3), ('ringo the tank engine', 4), ('hey hey were the beatles', 1);
 
 SELECT * FROM Jokes;
 SELECT * FROM Authors;

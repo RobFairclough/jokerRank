@@ -9,7 +9,7 @@ const {
 const sendAllJokes = (req, res, next) => {
   fetchAllJokes((err, jokes) => {
     if (err) next(err);
-    else res.send({ jokes });
+    else res.send(jokes);
   });
 };
 
@@ -24,17 +24,17 @@ const sendRandomJoke = (req, res, next) => {
 
 const sendNewJoke = (req, res, next) => {
   const { joke, author } = req.body;
-  saveNewJoke(joke, author, (err, joke) => {
+  saveNewJoke(joke, author, (err, done) => {
     if (err) next(err);
-    else res.status(201).send({ joke });
+    else res.send(done);
   });
 };
 
 const sendVote = (req, res, next) => {
   const { jokeid, vote } = req.body;
-  applyVote(jokeid, vote, (err, joke) => {
+  applyVote(jokeid, vote, (err, done) => {
     if (err) next(err);
-    else res.send({ joke });
+    else res.send(done);
   });
 };
 
