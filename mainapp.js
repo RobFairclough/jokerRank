@@ -1,7 +1,7 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 const path = require('path');
-const { seedMeSeymour } = require('./controllers/jokes');
+// const { seedMeSeymour } = require('./controllers/jokes');
 
 const { apiRouter } = require('./routes/api');
 // fixing
@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '/views/index.html'));
 });
-app.get('/seedmeseymour', seedMeSeymour);
+// app.get('/seedmeseymour', seedMeSeymour);
 app.use('/api', apiRouter);
 
 // 500 block error handling
