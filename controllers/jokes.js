@@ -39,16 +39,16 @@ const sendVote = (req, res, next) => {
   });
 };
 
-const seedMeSeymour = (req, res, next) => {
-  db.many(seed)
-    .then(seed => res.send(seed))
-    .catch(next);
-};
+// const seedMeSeymour = (req, res, next) => {
+//   db.many(seed)
+//     .then(seed => res.send(seed))
+//     .catch(next);
+// };
 
 module.exports = {
   sendAllJokes,
   sendRandomJoke,
   sendNewJoke,
-  sendVote,
-  seedMeSeymour
+  sendVote
+  // seedMeSeymour
 };
