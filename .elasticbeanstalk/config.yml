@@ -1,6 +1,6 @@
 branch-defaults:
   preaw:
-    environment: null
+    environment: jokerRank-dev
     group_suffix: null
 global:
   application_name: jokerRank
