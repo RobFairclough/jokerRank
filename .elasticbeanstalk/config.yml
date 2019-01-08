@@ -1,4 +1,6 @@
 branch-defaults:
+  master:
+    environment: jokerRank-dev
   preaw:
     environment: jokerRank-dev
     group_suffix: null

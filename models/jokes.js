@@ -1,12 +1,12 @@
-const db = require("../db");
+const db = require('../db');
 const {
   fetchAuthorById,
   fetchAllAuthors,
   saveNewAuthor
-} = require("./authors");
+} = require('./authors');
 
 const fetchAllJokes = cb => {
-  db.many("SELECT * FROM Jokes")
+  db.many('SELECT * FROM Jokes')
     .then(jokes => cb(null, jokes))
     .catch(err => cb(err));
 };
@@ -19,7 +19,7 @@ const saveNewJoke = (joke, author, cb) => {
     jokeObj.author_id = auth.author_id;
     const { joke, author_id } = jokeObj;
     db.one(
-      "INSERT INTO Jokes (joke, author_id) VALUES ($<joke>, $<author_id>) RETURNING *",
+      'INSERT INTO Jokes (joke, author_id) VALUES ($<joke>, $<author_id>) RETURNING *',
       { joke, author_id }
     )
       .then(joke => {
@@ -34,7 +34,7 @@ const fetchRandomJoke = cb => {
     if (err) cb(err);
     const rand = Math.floor(Math.random() * jokes.length);
     const joke = jokes[rand];
-    if (!joke) cb("err finding joke");
+    if (!joke) cb('err finding joke');
     else {
       fetchAuthorById(joke.author_id, (err, author) => {
         if (err) cb(err);
@@ -53,11 +53,11 @@ const fetchRandomJoke = cb => {
 };
 
 const applyVote = (id, vote, cb) => {
-  const voteValue = vote === "up" ? 1 : -1;
+  const voteValue = vote === 'up' ? 1 : -1;
   const jokeid = id;
   console.log(id);
   db.one(
-    "UPDATE Jokes set score = score + $<voteValue> WHERE joke_id = $<jokeid> RETURNING *",
+    'UPDATE Jokes set score = score + $<voteValue> WHERE joke_id = $<jokeid> RETURNING *',
     { voteValue, jokeid }
   )
     .then(vote => cb(null, vote))
