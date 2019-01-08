@@ -1,11 +1,12 @@
-const db = require("../db");
+const db = require('../db');
 const {
   fetchAllAuthors,
   fetchAuthorById,
   fetchAuthorJokes,
   saveNewAuthor
-} = require("../models/authors");
+} = require('../models/authors');
 
+// GET
 const sendAllAuthors = (req, res, next) => {
   fetchAllAuthors((err, authors) => {
     if (err) next(err);
@@ -29,6 +30,7 @@ const sendAuthorById = (req, res, next) => {
   });
 };
 
+// POST
 const sendNewAuthor = (req, res, next) => {
   const { author } = req.body;
   saveNewAuthor(author, (err, done) => {

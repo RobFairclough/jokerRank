@@ -1,6 +1,6 @@
 node_modules
 .eslintrc
-db/config.js
+config
 
 
 # Elastic Beanstalk Files

@@ -3,10 +3,12 @@ const {
   fetchAllJokes,
   saveNewJoke,
   fetchRandomJoke,
-  applyVote
+  applyVote,
+  applyDeletion
 } = require('../models/jokes');
 const seed = require('../seedtext');
 
+// GET
 const sendAllJokes = (req, res, next) => {
   fetchAllJokes((err, jokes) => {
     if (err) next(err);
@@ -23,6 +25,7 @@ const sendRandomJoke = (req, res, next) => {
   });
 };
 
+// POST
 const sendNewJoke = (req, res, next) => {
   const { joke, author } = req.body;
   saveNewJoke(joke, author, (err, done) => {
@@ -39,6 +42,17 @@ const sendVote = (req, res, next) => {
   });
 };
 
+// DELETE
+const requestDeletion = (req, res, next) => {
+  const { jokeid } = req.params;
+  const { pass } = req.body;
+  applyDeletion(jokeid, pass, (err, deleted) => {
+    if (err) next(err);
+    // invalid password screen
+    else res.send({ msg: 'successfully deleted this joke', joke: deleted });
+  });
+};
+
 // const seedMeSeymour = (req, res, next) => {
 //   db.many(seed)
 //     .then(seed => res.send(seed))
@@ -49,6 +63,7 @@ module.exports = {
   sendAllJokes,
   sendRandomJoke,
   sendNewJoke,
-  sendVote
+  sendVote,
+  requestDeletion
   // seedMeSeymour
 };

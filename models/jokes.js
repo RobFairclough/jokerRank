@@ -64,4 +64,23 @@ const applyVote = (id, vote, cb) => {
     .catch(err => cb(err));
 };
 
-module.exports = { fetchAllJokes, fetchRandomJoke, saveNewJoke, applyVote };
+const applyDeletion = (id, pass, cb) => {
+  const { delpass } = require('../config/config');
+  console.log(delpass);
+  if (pass === delpass) {
+    // success
+    db.one('DELETE FROM jokes WHERE jokeid = $<id> RETURNING *', { id })
+      .then(deleted => cb(null, deleted))
+      .catch(cb);
+  } else {
+    cb({ msg: 'Incorrect password' });
+  }
+};
+
+module.exports = {
+  fetchAllJokes,
+  fetchRandomJoke,
+  saveNewJoke,
+  applyVote,
+  applyDeletion
+};

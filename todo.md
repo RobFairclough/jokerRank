@@ -2,7 +2,7 @@ an actual readme \
 page after a quote is submitted \
 validation checks on submitted jokes - limit to tweet length? profanity filter? \
 tidy html \
-page for viewing more than one quote at a time - pagination / 10 jokes in chronological order? score order? both? \
+page for viewing more than one quote at a time - pagination / 10 jokes in score order? \
 report a joke - either just a json of quotes to check or email/message to me \
 frontend \
 
