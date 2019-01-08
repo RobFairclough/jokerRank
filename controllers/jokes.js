@@ -1,10 +1,11 @@
-const db = require("../db");
+const db = require('../db');
 const {
   fetchAllJokes,
   saveNewJoke,
   fetchRandomJoke,
   applyVote
-} = require("../models/jokes");
+} = require('../models/jokes');
+const seed = require('../seedtext');
 
 const sendAllJokes = (req, res, next) => {
   fetchAllJokes((err, jokes) => {
@@ -38,9 +39,16 @@ const sendVote = (req, res, next) => {
   });
 };
 
+const seedMeSeymour = (req, res, next) => {
+  db.many(seed)
+    .then(seed => res.send(seed))
+    .catch(next);
+};
+
 module.exports = {
   sendAllJokes,
   sendRandomJoke,
   sendNewJoke,
-  sendVote
+  sendVote,
+  seedMeSeymour
 };
