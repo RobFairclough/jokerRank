@@ -1,6 +1,6 @@
 const pgp = require('pg-promise')();
 
-const config = require('../config/config');
+const config = require('../config');
 
 const db = pgp(config);
 
