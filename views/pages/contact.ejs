@@ -14,6 +14,19 @@
     ></script>
   </head>
 
+  <script>
+    window.onload = toggle;
+    function toggle() {
+      const burger = document.querySelector('.burger');
+      console.log(burger);
+      const nav = document.querySelector('#' + burger.dataset.target);
+      console.log(nav);
+      burger.addEventListener('click', function() {
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+      });
+    }
+  </script>
   <body style="background-color: mediumaquamarine">
     <header>
       <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -29,7 +42,7 @@
             aria-expanded="false"
             data-target="navbarBasicExample"
           >
-            <span aria-hidden="true"></span> <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span><span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>

@@ -16,7 +16,18 @@
   <body style="background-color:mediumaquamarine">
     <script>
         window.onload = randomJoke;
+        function toggle () {
+            const burger = document.querySelector('.burger');
+            console.log(burger);
+            const nav = document.querySelector('#' + burger.dataset.target);
+            console.log(nav);
+            burger.addEventListener('click', function () {
+              burger.classList.toggle('is-active');
+              nav.classList.toggle('is-active');
+            });
+          };
           function randomJoke() {
+            toggle();
             const jokediv = document.querySelector("#randomjoke");
             const xhr = new XMLHttpRequest();
             xhr.onreadystatechange = () => {
@@ -67,6 +78,7 @@
           }
         </script>
     </script>
+    
     <header>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
