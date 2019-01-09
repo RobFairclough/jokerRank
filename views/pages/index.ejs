@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jokerRank</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+        window.onload = randomJoke;
+          function randomJoke() {
+            const jokediv = document.querySelector("#randomjoke");
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+              if (xhr.status === 200 && xhr.readyState === 4) {
+                const jokeObj = JSON.parse(xhr.response);
+                const jokeText = document.querySelector("#joke-text");
+                const jokeAuthor = document.querySelector("#joke-author");
+                const jokeScore = document.querySelector("#joke-score");
+                jokeText.innerText = jokeObj.joke;
+                jokeAuthor.innerText = `- ${jokeObj.author}`;
+                jokeScore.innerText = `Score: ${jokeObj.score}`;
+
+                const buttons = document.querySelector("#button-span");
+                buttons.innerHTML = `<button id = "up" class = "button" onclick = "vote('up', ${
+                  jokeObj.jokeid
+                  })">Ha ha ha!</button> <button id = "down" class = "button" onclick = "vote('down', ${
+                  jokeObj.jokeid
+                  })"> No </button>`;
+              }
+            };
+            xhr.open("GET", "/api/jokes/random");
+            xhr.send();
+          }
+          // function to run when vote buttons are clicked
+          const vote = (vote, jokeid) => {
+            const buttons = document.querySelector("#button-span");
+            buttons.innerHTML = `Casting vote...`;
+            const xhrvote = new XMLHttpRequest();
+            buttons.innerHTML = `Casting vote...`;
+            xhrvote.onreadystatechange = () => {
+              if (xhrvote.readyState === 4 && xhrvote.status === 200) {
+                const votedJoke = JSON.parse(xhrvote.response);
+                buttons.innerHTML = `Vote accepted!`;
+                const voteScore = document.querySelector("#joke-score");
+                voteScore.innerHTML = `Score: ${votedJoke.score}`;
+              }
+            };
+            xhrvote.open("POST", "/api/jokes/vote");
+            xhrvote.setRequestHeader("Content-Type", "application/json");
+            xhrvote.send(JSON.stringify({ vote, jokeid }), null, 2);
+          };
+          function tweet() {
+            const joke = document.querySelector("#joke-text").innerText;
+            const author = document.querySelector("#joke-author").innerText
+            const fullTweet = `${joke} ${author}  (found on jokerRank)`
+            const tweetLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullTweet)}`
+            window.open(tweetLink, '_blank');
+          }
+        </script>
+    </script>
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://jokerrank.co.uk">
+            <span class="brand"> jokerRank </span>
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span> <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item"> Home </a>
+
+            <a class="navbar-item"> Submit </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"> More </a>
+
+              <div class="navbar-dropdown">
+                <a
+                  class="navbar-item"
+                  href="https://www.github.com/robfairclough/jokerrank"
+                >
+                  Github
+                </a>
+                <a class="navbar-item" href="https://robfairclough.github.io">
+                  Portfolio
+                </a>
+                <a class="navbar-item" href="/contact"> Contact </a>
+                <hr class="navbar-divider" />
+                <a class="navbar-item" href="/report"> Report an issue </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="section">
+      <div class="container"><h1 class="title">jokerRank</h1></div>
+    </section>
+    <section class="section">
+      <div class="container jokebox" id="randomjoke">
+        <span id="joke-text"></span> <br />
+        <span id="joke-author"></span> <br />
+        <span id="joke-score"></span> <br />
+        <span id="button-span"></span> <br />
+        <button id="nextQuote" class="button" onclick="randomJoke()">Another joke</button>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>

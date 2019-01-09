@@ -5,11 +5,13 @@ const path = require('path');
 
 const { apiRouter } = require('./routes/api');
 // fixing
+
+app.set('view-engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // homepage
 app.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '/views/index.html'));
+  res.render('pages/index.ejs');
 });
 // app.get('/seedmeseymour', seedMeSeymour);
 app.use('/api', apiRouter);
