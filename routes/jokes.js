@@ -14,7 +14,7 @@ jokesRouter.get('/all', sendAllJokes);
 jokesRouter.get('/random', sendRandomJoke);
 // submit a joke page - not the post request
 jokesRouter.get('/new', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '/../views/new.html'));
+  res.render('pages/new.ejs');
 });
 
 // save new joke

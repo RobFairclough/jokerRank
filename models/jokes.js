@@ -23,7 +23,13 @@ const saveNewJoke = (joke, author, cb) => {
       { joke, author_id }
     )
       .then(joke => {
-        cb(null, joke);
+        const newObj = {
+          joke: joke.joke,
+          author: auth.author_name,
+          jokeid: joke.joke_id,
+          authorid: auth.author_id
+        };
+        cb(null, newObj);
       })
       .catch(err => cb(err));
   });

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Bulma!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+
+  <body style="background-color: mediumaquamarine">
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <span class="brand"> jokerRank </span>
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span> <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/"> Home </a>
+
+            <a class="navbar-item" href="/api/jokes/new"> Submit </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"> More </a>
+
+              <div class="navbar-dropdown">
+                <a
+                  class="navbar-item"
+                  href="https://www.github.com/robfairclough/jokerrank"
+                >
+                  Github
+                </a>
+                <a class="navbar-item" href="https://robfairclough.github.io">
+                  Portfolio
+                </a>
+                <a class="navbar-item" href="/contact"> Contact </a>
+                <!-- <hr class="navbar-divider" />
+                <a class="navbar-item" href="/report"> Report an issue </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Submit a joke</h1>
+        <p class="subtitle">think you're<strong> funny?</strong>!</p>
+        <div class="field">
+          <form method="POST">
+            <div class="field">
+              <label for="joke">Your joke: </label>
+              <input
+                name="joke"
+                type="text"
+                class="input"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="author">Author: </label>
+              <input
+                name="author"
+                type="text"
+                class="input"
+                placeholder="optional"
+              />
+            </div>
+            <div class="field">
+              <button class="button is-light" type="submit" value="Submit Joke">
+                Submit Joke
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
