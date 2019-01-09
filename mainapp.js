@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 app.get('/', (req, res, next) => {
   res.render('pages/index.ejs');
 });
+app.get('/contact', (req, res, next) => {
+  res.render('pages/contact.ejs');
+});
 // app.get('/seedmeseymour', seedMeSeymour);
 app.use('/api', apiRouter);
 

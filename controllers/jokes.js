@@ -28,9 +28,10 @@ const sendRandomJoke = (req, res, next) => {
 // POST
 const sendNewJoke = (req, res, next) => {
   const { joke, author } = req.body;
-  saveNewJoke(joke, author, (err, done) => {
+  saveNewJoke(joke, author, (err, newJoke) => {
+    console.log(newJoke);
     if (err) next(err);
-    else res.send(done);
+    else res.render('pages/submitted.ejs', { newJoke });
   });
 };
 

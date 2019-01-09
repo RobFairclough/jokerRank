@@ -13,8 +13,8 @@
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
   </head>
-  <body>
-    <script type="text/javascript">
+  <body style="background-color:mediumaquamarine">
+    <script>
         window.onload = randomJoke;
           function randomJoke() {
             const jokediv = document.querySelector("#randomjoke");
@@ -70,8 +70,8 @@
     <header>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="http://jokerrank.co.uk">
-            <span class="brand"> jokerRank </span>
+          <a class="navbar-item" href="/">
+            <span class="title"> jokerRank </span>
           </a>
 
           <a
@@ -88,9 +88,9 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item"> Home </a>
+            <a class="navbar-item" href = "/"> Home </a>
 
-            <a class="navbar-item"> Submit </a>
+            <a class="navbar-item" href = "/api/jokes/new"> Submit </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link"> More </a>
@@ -119,12 +119,18 @@
       <div class="container"><h1 class="title">jokerRank</h1></div>
     </section>
     <section class="section">
-      <div class="container jokebox" id="randomjoke">
+      <div class="container  jokebox" id="randomjoke">
+        <div class = "box">
         <span id="joke-text"></span> <br />
         <span id="joke-author"></span> <br />
-        <span id="joke-score"></span> <br />
+        <span class = "tag is-primary" id="joke-score"></span> <br />
+      </div>
+        <div class ="field">
         <span id="button-span"></span> <br />
+        </div>
+        <div class = "field">
         <button id="nextQuote" class="button" onclick="randomJoke()">Another joke</button>
+        </div>
       </div>
     </section>
     <footer></footer>
