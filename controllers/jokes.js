@@ -7,8 +7,6 @@ const {
   applyVote,
   applyDeletion
 } = require('../models/jokes');
-const { tweet } = require('../models/report');
-const seed = require('../seedtext');
 
 // GET
 const sendAllJokes = (req, res, next) => {
@@ -64,12 +62,6 @@ const requestDeletion = (req, res, next) => {
     else res.send({ msg: 'successfully deleted this joke', joke: deleted });
   });
 };
-
-// const seedMeSeymour = (req, res, next) => {
-//   db.many(seed)
-//     .then(seed => res.send(seed))
-//     .catch(next);
-// };
 
 module.exports = {
   sendAllJokes,
