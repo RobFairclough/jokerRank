@@ -83,14 +83,26 @@
           action="/api/report"
           method="POST"
           id="reportform"
+          onsubmit="hidetext()"
         ></form>
+        <% if (!sent) {%>
         <textarea
           class="textarea is-info"
           placeholder="What's up?"
           form="reportform"
-          name="comment"
+          name="report"
+          id="report-text"
+          maxlength="250"
         ></textarea>
-        <span></span>
+        <div class="field">
+          <button class="button" type="submit" value="Submit" form="reportform">
+            Submit
+          </button>
+          <% } %>
+        </div>
+        <% if (sent) { %>
+        <span id="submitted">Thanks for submitting a report, buddy</span> <% }
+        %>
       </div>
     </section>
   </body>

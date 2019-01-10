@@ -15,6 +15,9 @@ app.get('/', (req, res, next) => {
 app.get('/contact', (req, res, next) => {
   res.render('pages/contact.ejs');
 });
+app.get('/report', (req, res, next) => {
+  res.render('pages/report.ejs', { sent: false });
+});
 // app.get('/seedmeseymour', seedMeSeymour);
 app.use('/api', apiRouter);
 

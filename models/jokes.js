@@ -2,14 +2,10 @@ const db = require('../db');
 const Filter = require('bad-words');
 const profanityFilter = new Filter();
 const { tweet } = require('./report');
-const {
-  fetchAuthorById,
-  fetchAllAuthors,
-  saveNewAuthor
-} = require('./authors');
+const { fetchAuthorById, saveNewAuthor } = require('./authors');
 
 const fetchAllJokes = cb => {
-  db.many('SELECT * FROM Jokes')
+  db.many('SELECT * FROM Jokes ORDER BY joke_id')
     .then(jokes => cb(null, jokes))
     .catch(err => cb(err));
 };

@@ -24,4 +24,10 @@ const tweet = text => {
     .then(console.log)
     .catch(console.log);
 };
-module.exports = { tweet };
+
+const fileReport = (report, cb) => {
+  const tweetReport = 'some whiny baby sent us a report that says: ' + report;
+  tweet(tweetReport);
+  cb(null, tweetReport);
+};
+module.exports = { tweet, fileReport };
