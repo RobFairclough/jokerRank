@@ -1,7 +1,7 @@
 const db = require('../db');
 const Filter = require('bad-words');
 const profanityFilter = new Filter();
-const tweet = require('./report');
+const { tweet } = require('./report');
 const {
   fetchAuthorById,
   fetchAllAuthors,
@@ -101,9 +101,10 @@ const applyVote = (id, vote, cb) => {
 
 const applyDeletion = (id, pass, cb) => {
   const { delpass } = require('../config');
+  console.log(pass, delpass);
   if (pass === delpass) {
     // success
-    db.one('DELETE FROM jokes WHERE jokeid = $<id> RETURNING *', { id })
+    db.one('DELETE FROM jokes WHERE joke_id = $<id> RETURNING *', { id })
       .then(deleted => cb(null, deleted))
       .catch(cb);
   } else {

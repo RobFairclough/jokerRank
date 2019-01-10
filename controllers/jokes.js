@@ -57,7 +57,7 @@ const sendVote = (req, res, next) => {
 // DELETE
 const requestDeletion = (req, res, next) => {
   const { jokeid } = req.params;
-  const { pass } = req.body;
+  const { pass } = req.query;
   applyDeletion(jokeid, pass, (err, deleted) => {
     if (err) next(err);
     // invalid password screen
