@@ -6,6 +6,7 @@ const {
   applyVote,
   applyDeletion
 } = require('../models/jokes');
+const { tweet } = require('../models/report');
 const seed = require('../seedtext');
 
 // GET
@@ -31,7 +32,11 @@ const sendNewJoke = (req, res, next) => {
   saveNewJoke(joke, author, (err, newJoke) => {
     console.log(newJoke);
     if (err) next(err);
-    else res.render('pages/submitted.ejs', { newJoke });
+    else {
+      if (newJoke.joke.length < 240) tweet(newJoke.joke);
+      tweet(newJoke.joke);
+      res.render('pages/submitted.ejs', { newJoke });
+    }
   });
 };
 
