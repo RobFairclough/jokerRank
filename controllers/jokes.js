@@ -41,7 +41,6 @@ const sendNewJoke = (req, res, next) => {
   saveNewJoke(joke, author, (err, newJoke) => {
     if (err) next(err);
     else {
-      if (newJoke.joke.length < 240) tweet(newJoke.joke);
       res.render('pages/submitted.ejs', { newJoke });
     }
   });
