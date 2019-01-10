@@ -1,6 +1,7 @@
 const db = require('../db');
 const Filter = require('bad-words');
 const profanityFilter = new Filter();
+const tweet = require('./report');
 const {
   fetchAuthorById,
   fetchAllAuthors,
@@ -31,6 +32,8 @@ const saveNewJoke = (joke, author, cb) => {
           jokeid: joke.joke_id,
           authorid: auth.author_id
         };
+        if (joke.joke.length < 240 && !profanityFilter.isProfane(joke.joke))
+          tweet(joke.joke);
         cb(null, newObj);
       })
       .catch(err => cb(err));
