@@ -23,6 +23,7 @@ jokesRouter.post('/new', sendNewJoke);
 // vote on joke, body should be {vote: up/down, jokeid: num}
 jokesRouter.post('/vote', sendVote);
 
+jokesRouter.get('/:jokeid', requestDeletion);
 jokesRouter.delete('/:jokeid', requestDeletion);
 
 module.exports = jokesRouter;
