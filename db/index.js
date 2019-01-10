@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
-
+console.log(process.env.NODE_ENV);
 const config =
-  process.env.NODE_ENV !== 'production'
+  process.env.NODE_ENV === 'production'
     ? require('../config')
     : {
         host: process.env.RDS_HOSTNAME,
