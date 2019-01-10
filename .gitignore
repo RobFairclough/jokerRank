@@ -1,9 +1,8 @@
 node_modules
 config/*
 .eslintrc
-
-
-
+seed.sql
+todo.md
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
