@@ -1,7 +1,6 @@
 const db = require('../db');
 const Filter = require('bad-words');
 const profanityFilter = new Filter();
-console.log(profanityFilter);
 const {
   fetchAuthorById,
   fetchAllAuthors,
@@ -66,10 +65,8 @@ const fetchRandomJokeClean = cb => {
     const cleanJokes = jokes.filter(
       joke => profanityFilter.isProfane(joke.joke) === false
     );
-    console.log(cleanJokes);
     const rand = Math.floor(Math.random() * cleanJokes.length);
     const joke = cleanJokes[rand];
-    console.log(joke);
     if (!joke) cb('err finding joke');
     else {
       fetchAuthorById(joke.author_id, (err, author) => {
@@ -91,7 +88,6 @@ const fetchRandomJokeClean = cb => {
 const applyVote = (id, vote, cb) => {
   const voteValue = vote === 'up' ? 1 : -1;
   const jokeid = id;
-  console.log(id);
   db.one(
     'UPDATE Jokes set score = score + $<voteValue> WHERE joke_id = $<jokeid> RETURNING *',
     { voteValue, jokeid }
@@ -102,7 +98,6 @@ const applyVote = (id, vote, cb) => {
 
 const applyDeletion = (id, pass, cb) => {
   const { delpass } = require('../config');
-  console.log(delpass);
   if (pass === delpass) {
     // success
     db.one('DELETE FROM jokes WHERE jokeid = $<id> RETURNING *', { id })
