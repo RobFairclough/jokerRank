@@ -3,6 +3,7 @@ const path = require('path');
 const {
   sendAllJokes,
   sendRandomJoke,
+  sendRandomJokeClean,
   sendNewJoke,
   sendVote,
   requestDeletion
@@ -12,6 +13,7 @@ const {
 jokesRouter.get('/all', sendAllJokes);
 // get random joke - used to generate joke on homepage
 jokesRouter.get('/random', sendRandomJoke);
+jokesRouter.get('/randomclean', sendRandomJokeClean);
 // submit a joke page - not the post request
 jokesRouter.get('/new', (req, res, next) => {
   res.render('pages/new.ejs');

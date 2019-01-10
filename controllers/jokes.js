@@ -3,6 +3,7 @@ const {
   fetchAllJokes,
   saveNewJoke,
   fetchRandomJoke,
+  fetchRandomJokeClean,
   applyVote,
   applyDeletion
 } = require('../models/jokes');
@@ -19,6 +20,14 @@ const sendAllJokes = (req, res, next) => {
 
 const sendRandomJoke = (req, res, next) => {
   fetchRandomJoke((err, joke) => {
+    if (err) next(err);
+    else {
+      res.send(joke);
+    }
+  });
+};
+const sendRandomJokeClean = (req, res, next) => {
+  fetchRandomJokeClean((err, joke) => {
     if (err) next(err);
     else {
       res.send(joke);
@@ -68,6 +77,7 @@ const requestDeletion = (req, res, next) => {
 module.exports = {
   sendAllJokes,
   sendRandomJoke,
+  sendRandomJokeClean,
   sendNewJoke,
   sendVote,
   requestDeletion

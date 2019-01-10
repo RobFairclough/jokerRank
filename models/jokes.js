@@ -1,4 +1,7 @@
 const db = require('../db');
+const Filter = require('bad-words');
+const profanityFilter = new Filter();
+console.log(profanityFilter);
 const {
   fetchAuthorById,
   fetchAllAuthors,
@@ -57,6 +60,33 @@ const fetchRandomJoke = cb => {
     }
   });
 };
+const fetchRandomJokeClean = cb => {
+  fetchAllJokes((err, jokes) => {
+    if (err) cb(err);
+    const cleanJokes = jokes.filter(
+      joke => profanityFilter.isProfane(joke.joke) === false
+    );
+    console.log(cleanJokes);
+    const rand = Math.floor(Math.random() * cleanJokes.length);
+    const joke = cleanJokes[rand];
+    console.log(joke);
+    if (!joke) cb('err finding joke');
+    else {
+      fetchAuthorById(joke.author_id, (err, author) => {
+        if (err) cb(err);
+        else {
+          const jokeobj = {
+            joke: joke.joke,
+            author: author.author_name,
+            score: joke.score,
+            jokeid: joke.joke_id
+          };
+          cb(null, jokeobj);
+        }
+      });
+    }
+  });
+};
 
 const applyVote = (id, vote, cb) => {
   const voteValue = vote === 'up' ? 1 : -1;
@@ -86,6 +116,7 @@ const applyDeletion = (id, pass, cb) => {
 module.exports = {
   fetchAllJokes,
   fetchRandomJoke,
+  fetchRandomJokeClean,
   saveNewJoke,
   applyVote,
   applyDeletion
