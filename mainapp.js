@@ -1,6 +1,5 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
-const path = require('path');
 // const { seedMeSeymour } = require('./controllers/jokes');
 
 const { apiRouter } = require('./routes/api');
