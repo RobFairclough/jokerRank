@@ -100,7 +100,7 @@ const applyVote = (id, vote, cb) => {
 };
 
 const applyDeletion = (id, pass, cb) => {
-  const { delpass } = require('../config');
+  const { delpass } = process.env.delpass || require('../config');
   console.log(pass, delpass);
   if (pass === delpass) {
     // success
