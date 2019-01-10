@@ -39,11 +39,9 @@ const sendRandomJokeClean = (req, res, next) => {
 const sendNewJoke = (req, res, next) => {
   const { joke, author } = req.body;
   saveNewJoke(joke, author, (err, newJoke) => {
-    console.log(newJoke);
     if (err) next(err);
     else {
       if (newJoke.joke.length < 240) tweet(newJoke.joke);
-      tweet(newJoke.joke);
       res.render('pages/submitted.ejs', { newJoke });
     }
   });
