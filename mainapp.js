@@ -18,6 +18,9 @@ app.get('/contact', (req, res, next) => {
 // app.get('/seedmeseymour', seedMeSeymour);
 app.use('/api', apiRouter);
 
+app.use('/*', (req, res, next) => {
+  res.status(404).render('pages/404.ejs');
+});
 // 500 block error handling
 app.use((err, req, res, next) => {
   console.log(err);
