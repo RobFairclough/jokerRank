@@ -28,8 +28,12 @@ const saveNewJoke = (joke, author, cb) => {
           jokeid: joke.joke_id,
           authorid: auth.author_id
         };
-        if (joke.joke.length < 240 && !profanityFilter.isProfane(joke.joke))
+        let tweetJoke = joke.joke;
+        if (joke.joke.length < 275 && !profanityFilter.isProfane(joke.joke)) {
+          if (tweetJoke.length + joke.author.length <= 275)
+            tweetJoke += ` - ${joke.author}`;
           tweet(joke.joke);
+        }
         cb(null, newObj);
       })
       .catch(err => cb(err));
