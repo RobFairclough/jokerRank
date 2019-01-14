@@ -25,6 +25,7 @@ const fetchAuthorById = (id, cb) => {
 
 const saveNewAuthor = (author, cb) => {
   if (!author) author = 'Anonymous';
+  console.log(author);
   fetchAllAuthors((err, authors) => {
     if (err) cb(err);
     else {
