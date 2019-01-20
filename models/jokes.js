@@ -32,7 +32,7 @@ const saveNewJoke = (joke, author, cb) => {
         if (joke.joke.length < 275 && !profanityFilter.isProfane(joke.joke)) {
           if (tweetJoke.length + newObj.author.length <= 275)
             tweetJoke += ` - ${joke.author}`;
-          tweet(joke.joke);
+          tweet(tweetJoke);
         }
         cb(null, newObj);
       })
