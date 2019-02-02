@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run seed & mocha spec",
     "dev": "nodemon listen.js",
-    "start": "node listen.js",
+    "start": "NODE_ENV=production node listen.js",
     "seed": "psql -f seed.sql > seeddata.txt"
   },
   "keywords": [],
