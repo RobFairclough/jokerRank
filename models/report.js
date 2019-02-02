@@ -1,5 +1,6 @@
 const Twitter = require('twitter');
 const tweet = text => {
+  console.log(process.env.NODE_ENV)
   const config = {};
   if (process.env.NODE_ENV === 'production') {
     config.consumer_key = process.env.TWITTER_CONSUMER_KEY;
