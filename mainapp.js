@@ -3,12 +3,11 @@ const bodyParser = require('body-parser');
 // const { seedMeSeymour } = require('./controllers/jokes');
 
 const { apiRouter } = require('./routes/api');
-// fixing
 
 app.set('view-engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// homepage
+
 app.get('/', (req, res, next) => {
   res.render('pages/index.ejs');
 });
